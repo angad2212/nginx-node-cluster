@@ -2,18 +2,18 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 
-// Unique server ID (so we know which one handled the request)
 const PORT = 3001;
 
+// respond with which server handled the request
 app.get("/", (req, res) => {
-  res.send(`Hello from Server running on port ${PORT}`);
+  res.send(`Hello from Server on PORT: ${PORT}`);
 });
 
 app.post("/data", (req, res) => {
   const { name } = req.body;
-  res.send(`Hello ${name}, response from server on port ${PORT}`);
+  res.send(`Hello ${name}, handled by Server on PORT: ${PORT}`);
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`✅ Server running on port ${PORT}`);
 });

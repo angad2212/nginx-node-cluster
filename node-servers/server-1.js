@@ -3,7 +3,7 @@ const app = express();
 app.use(express.json());
 
 // Unique server ID (so we know which one handled the request)
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 app.get("/", (req, res) => {
   res.send(`Hello from Server running on port ${PORT}`);

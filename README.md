@@ -66,6 +66,29 @@ A **Load Balancer (LB)** is like a **traffic cop 🚦**:
 
 ---
 
+### Common Load Balancing Algorithms
+
+Load balancers use different strategies to decide which server should handle each request. The most popular ones are:
+
+- **Round Robin** (default in NGINX)  
+  - Requests are sent to servers one by one in a cycle (A → B → C → A → B …).  
+  - Simple and effective when servers are similar in capacity.  
+
+- **Least Connections**  
+  - Sends traffic to the server with the fewest active connections.  
+  - Useful when requests vary in length (some short, some long).  
+
+- **IP Hash (Sticky Sessions)**  
+  - The client’s IP determines which server they always connect to.  
+  - Ensures the same user keeps hitting the same server (important if server stores session in memory).  
+
+- **Weighted Round Robin**  
+  - Each server is assigned a “weight” (e.g., Server A = 2, Server B = 1).  
+  - Higher-weighted servers get more requests.  
+  - Useful if some servers are more powerful than others.  
+
+---
+
 ## 🛠️ What This Repo Does
 
 This is a **mini demo of horizontal scaling with load balancing**:
